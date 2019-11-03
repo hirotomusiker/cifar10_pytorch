@@ -1,0 +1,5 @@
+torch==1.0.0
+numpy==1.15.2
+tensorboardX==1.4
+PyYAML>=4.2b1
+yacs
