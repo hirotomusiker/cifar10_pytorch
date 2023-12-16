@@ -4,8 +4,8 @@ Easy-to-run model benchmark on CIFAR10.
 With this repository you can:
 - train VGG[1], ResNet[2], and EfficientNet[3] series
 - manage training conditions using [YACS](https://github.com/rbgirshick/yacs) configs
-- plot the results on tensorboard 
-- build environment using docker 
+- plot the results on tensorboard
+- build environment using docker
 
 So far you cannot:
 - train models on ImageNet
@@ -13,6 +13,7 @@ So far you cannot:
 - load tensorflow weights
 
 ### What's New
+- Updated docker environment
 - Verified test accuracy of VGG16, ResNet18 and EfficientNetB0
 - Verified that EfficientNetB0-B7 successfully works with ImageNet-pretrained weights
 
@@ -29,7 +30,7 @@ Input size is 32x32.
 </table></tbody>
 
 ### Transfer Learning
-Finetuning ImageNet-pretrained models on CIFAR10.  
+Finetuning ImageNet-pretrained models on CIFAR10.
 Input size during training is 224x224.
 <table><tbody>
 <tr><th>EfficientNet B0: 97.8 % ([3]: 98.1%)</th></tr>
@@ -39,21 +40,23 @@ If you wish to train EfficientNet models from scratch, simply drop `MODEL.PRETRA
 
 ## Getting Started
 
-### Prerequisites: 
+### Prerequisites:
 - Python 3.6+
 - PyTorch 1.0+
 - (optional) tensorboardX
 
-### Using Docker 
+### Docker
+
+Install `docker-compose` and `nvidia-container-runtime` beforehand.
 
 ```bash
-$ nvidia-docker build -t cifar10_pytorch --build-arg UID=`id -u` -f docker/Dockerfile .
-$ docker run -it -v `pwd`:/work --name cifar10_pytorch_container cifar10_pytorch
+$ docker-compose build --build-arg UID="`id -u`" dev
+$ docker-compose run dev
 ```
 
 ## Training on CIFAR10
 
-You can select a model to train by specifying a config file.  
+You can select a model to train by specifying a config file.
 ```bash
 $ python train.py --help
 usage: train.py [-h] [--config CONFIG] [--tfboard TFBOARD]
@@ -93,7 +96,7 @@ Others
 - [ ] instruction of models
 
 ## References
-[1] K. Simonyan and A. Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition" [paper](https://arxiv.org/abs/1409.1556)  
-[2] K. He, X. Zhang, S. Ren, J. Sun, "Deep Residual Learning for Image Recognition" [paper](https://arxiv.org/abs/1512.03385)  
-[3] M. Tan and Q. V. Le, "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks" [paper](https://arxiv.org/abs/1905.11946)  
-[4] [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)  
+[1] K. Simonyan and A. Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition" [paper](https://arxiv.org/abs/1409.1556)
+[2] K. He, X. Zhang, S. Ren, J. Sun, "Deep Residual Learning for Image Recognition" [paper](https://arxiv.org/abs/1512.03385)
+[3] M. Tan and Q. V. Le, "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks" [paper](https://arxiv.org/abs/1905.11946)
+[4] [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)
