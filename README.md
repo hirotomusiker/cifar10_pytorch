@@ -2,8 +2,8 @@
 Easy-to-run model benchmark on CIFAR10.
 
 With this repository you can:
-- train VGG[1], ResNet[2], and EfficientNet[3] series
-- manage training conditions using [YACS](https://github.com/rbgirshick/yacs) configs
+- train VGG[1], ResNet[2]
+- manage training conditions using OmegaConf
 - plot the results on tensorboard
 - build environment using docker
 
@@ -13,9 +13,8 @@ So far you cannot:
 - load tensorflow weights
 
 ### What's New
-- Updated docker environment
-- Verified test accuracy of VGG16, ResNet18 and EfficientNetB0
-- Verified that EfficientNetB0-B7 successfully works with ImageNet-pretrained weights
+- Updated docker and config environments (Dec. 2023)
+- EfficientNet models are no longer supported (Dec. 2023)
 
 ## Benchmark Results
 
@@ -28,15 +27,6 @@ Input size is 32x32.
 <tr><th><img src="data/vgg16_test_acc.png" height="160"\> </th><th>
 <img src="data/resnet18_test_acc.png" height="160"\></th></tr>
 </table></tbody>
-
-### Transfer Learning
-Finetuning ImageNet-pretrained models on CIFAR10.
-Input size during training is 224x224.
-<table><tbody>
-<tr><th>EfficientNet B0: 97.8 % ([3]: 98.1%)</th></tr>
-<tr><th><img src="data/efficientnetB0_test_acc.png" height="160"\> </th></tr>
-</table></tbody>
-If you wish to train EfficientNet models from scratch, simply drop `MODEL.PRETRAINED` from your config.
 
 ## Getting Started
 
@@ -79,21 +69,7 @@ $ python train.py --config configs/vgg16.yaml --tfboard out
 
 ## TODOs
 
-Models
-- [ ] MobileNet v3
-- [ ] MobileNet v2
-- [ ] ResNet Transfer Learning
-
-Data augmentation
-- [ ] CutMix
-- [ ] CurOut
-- [ ] Manifold Mixup
-
-Others
-- [ ] CIFAR100
-- [ ] pip installer
-- [ ] multiple GPU training
-- [ ] instruction of models
+(TBD)
 
 ## References
 [1] K. Simonyan and A. Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition" [paper](https://arxiv.org/abs/1409.1556)

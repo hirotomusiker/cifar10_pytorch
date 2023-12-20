@@ -1,6 +1,1 @@
-lightning>=2.0.0
-matplotlib
 omegaconf
-pytest
-pytest-cov
-yacs
