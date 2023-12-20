@@ -1,0 +1,22 @@
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        PYTHON_VERSION: 3.10.12
+        TORCH_VERSION: 2.1.0+cu121
+        TORCHVISION_VERSION: 0.16.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    shm_size: "16gb"
+    tty: true
+    volumes:
+      - .:/work
+      - /mnt/e/Dataset:/work/dataset
