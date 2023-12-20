@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from cifar10_pytorch.modeling.models import build_ResNet
 from cifar10_pytorch.modeling.models import VGG
 
