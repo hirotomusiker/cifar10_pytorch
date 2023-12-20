@@ -1,5 +1,6 @@
 import torch
 
+
 def train(model, device, dataloader, criterion, optimizer, epoch):
     """
     train the model for one epoch.
@@ -32,14 +33,10 @@ def train(model, device, dataloader, criterion, optimizer, epoch):
         correct += predicted.eq(targets).sum().item()
 
         if batch_i > 0 and (batch_i + 1) % 100 == 0:
-            print("epoch {}, iter {} / {}, Loss: {:.3f} | Acc: {:.3f}".format(
-                epoch+1,
-                batch_i+1,
-                len(dataloader),
-                train_loss/(batch_i+1),
-                100.*correct/total
-            ))
-    return train_loss/(batch_i+1), 100.*correct/total
+            print_log(
+                epoch, batch_i, len(dataloader), train_loss, correct / total
+            )
+    return train_loss / (batch_i + 1), 100.0 * correct / total
 
 
 def test(model, device, dataloader, criterion, epoch):
@@ -68,13 +65,22 @@ def test(model, device, dataloader, criterion, epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
             if batch_i > 0 and (batch_i + 1) % 100 == 0:
-                print("epoch {}, iter {} / {}, Loss: {:.3f} | Acc: {:.3f}".format(
-                    epoch+1,
-                    batch_i+1,
-                    len(dataloader),
-                    test_loss/(batch_i+1),
-                    100.*correct/total,
-                ))
-    acc = 100.*correct/total
+                print_log(
+                    epoch, batch_i, len(dataloader), test_loss, correct / total
+                )
+    acc = 100.0 * correct / total
     print("Accuracy: {:.4f}".format(acc))
     return acc
+
+
+def print_log(epoch, batch_i, datasize, loss, acc):
+    print(
+        "epoch {}, iter {} / {}, Loss: {:.3f} | Acc: {:.3f}".format(
+            epoch + 1,
+            batch_i + 1,
+            datasize,
+            loss / (batch_i + 1),
+            100.0 * acc,
+        )
+    )
+    return

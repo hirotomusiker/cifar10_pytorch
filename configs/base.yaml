@@ -4,11 +4,6 @@ MODEL:
   NAME: ""
   DEVICE: "cuda"
   PRETRAINED: ""
-  # EfficientNet Parameters
-  DROPOUT_RATE: 0.2
-  DROPCONNECT_RATE: 0.2
-  CHANNEL_MULTIPLIER: 1.0
-  DEPTH_MULTIPLIER: 1.0
   # ResNet Parameters
   RESNET_BLOCK: "Basic"
   RESNET_LAYERS: [2, 2, 2, 2]

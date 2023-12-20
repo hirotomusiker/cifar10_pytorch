@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import argparse
 import os
 
@@ -7,8 +5,8 @@ import torch
 from omegaconf import OmegaConf
 
 from cifar10_pytorch.data import dataset
-from cifar10_pytorch.engine import test
-from cifar10_pytorch.engine import train
+from cifar10_pytorch.engine.trainer import test
+from cifar10_pytorch.engine.trainer import train
 from cifar10_pytorch.modeling import build_model
 
 
