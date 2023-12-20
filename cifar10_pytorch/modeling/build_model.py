@@ -1,10 +1,9 @@
-from cifar10_pytorch.modeling.models import *
+from __future__ import annotations
 
-_META_MODELS = {
-    "VGG": VGG,
-    "ResNet": build_ResNet,
-    "EfficientNet": build_EfficientNet,
-}
+from cifar10_pytorch.modeling.models import build_ResNet
+from cifar10_pytorch.modeling.models import VGG
+
+_META_MODELS = {"VGG": VGG, "ResNet": build_ResNet}
 
 
 def build_model(cfg):
