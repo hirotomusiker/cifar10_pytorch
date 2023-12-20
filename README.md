@@ -13,8 +13,8 @@ So far you cannot:
 - load tensorflow weights
 
 ### What's New
-- Updated docker and config environments (Dec. 2023)
-- EfficientNet models are no longer supported (Dec. 2023)
+- <b>Updated docker and config environments (Dec. 2023)</b>
+- <b>EfficientNet models are no longer supported (Dec. 2023)</b>
 
 ## Benchmark Results
 
@@ -72,7 +72,7 @@ $ python train.py --config configs/vgg16.yaml --tfboard out
 (TBD)
 
 ## References
-[1] K. Simonyan and A. Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition" [paper](https://arxiv.org/abs/1409.1556)
-[2] K. He, X. Zhang, S. Ren, J. Sun, "Deep Residual Learning for Image Recognition" [paper](https://arxiv.org/abs/1512.03385)
-[3] M. Tan and Q. V. Le, "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks" [paper](https://arxiv.org/abs/1905.11946)
-[4] [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)
+[1] K. Simonyan and A. Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition" [paper](https://arxiv.org/abs/1409.1556) <br>
+[2] K. He, X. Zhang, S. Ren, J. Sun, "Deep Residual Learning for Image Recognition" [paper](https://arxiv.org/abs/1512.03385)<br>
+[3] M. Tan and Q. V. Le, "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks" [paper](https://arxiv.org/abs/1905.11946)<br>
+[4] [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)<br>
